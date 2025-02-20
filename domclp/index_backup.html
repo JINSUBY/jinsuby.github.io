@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Compact 3D Gaussian Splatting</title>
+  <title>DomCLP: Domain-wise Contrastive Learning with Prototype Mixup for Unsupervised Domain Generalization</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -138,40 +138,80 @@
               <div class="w3-center">
                 <h4><b>AAAI 2025</b></h4>
                 <h4>[<a href="https://arxiv.org/abs/2412.09074"><b>Paper</b></a>]
-                  [<a href="https://github.com/JINSUBY/DomCLP"><b>Code</b></a>]</h4>
+                  [<a href="https://github.com/JINSUBY/DomCLP/"><b>Code</b></a>]</h4>
                 </div>
-                <h5><a href="https://jinsuby.github.io">Jin-Seop Lee</a>, Noo-ri Kim, Jee-Hyong Lee</h5>
+                <h5><a href="https://jinsuby.github.io">Jin-Seop Lee</a>,
+                  Noo-ri Kim,
+                  Jee-Hyong Lee
+                </h5>
                 <h5>Sungkyunkwan University</h5>
               </div>
 
+              <hr>
+              <p align="justify">
+                [Update (Aug. 2024)] We have extended the compact 3D Gaussian splatting for dynamic scene representation.
+              </p>
               <div class="w3-center">
-                <h2>Abstract</h2>
+                <!-- <h2>Videos</h2> -->
+                <div style="width: 48.4%; display: inline-block;">
+                  <video controls style="width:100%" autoplay loop playsinline muted>
+                    <source src="videos/movingdemo_flame_salmon.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
+                <div style="width: 48.4%; display: inline-block;">
+                  <video controls style="width:100%" autoplay loop playsinline muted>
+                    <source src="videos/movingdemo_train.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
+              </div>
+              <hr>
+              <div class="w3-center">
+                <h2>Architecture for Dynamic Scenes</h2>
               </div>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/abstract.png" style="width:100%">
+                <embed src="images/fig_dyn.png" style="width:100%">
 
               </div>
+              <!-- <div class="w3-center">
+                    <h2>Abstract</h2>
+                </div> -->
               <p align="justify">
-                Self-supervised learning (SSL) methods based on the instance discrimination tasks with InfoNCE have achieved remarkable success.
-                Despite their success, SSL models often struggle to generate effective representations for unseen-domain data.
-                To address this issue, research on unsupervised domain generalization (UDG),
-                which aims to develop SSL models that can generate domain-irrelevant features, has been conducted.
-                Most UDG approaches utilize contrastive learning with InfoNCE to generate representations,
-                and perform feature alignment based on strong assumptions to generalize domain-irrelevant common features from multi-source domains.
-                However, existing methods that rely on instance discrimination tasks are not effective at extracting domain-irrelevant common features.
-                This leads to the suppression of domain-irrelevant common features and the amplification of domain-relevant features,
-                thereby hindering domain generalization. Furthermore, strong assumptions underlying feature alignment can lead to biased feature learning,
-                reducing the diversity of common features.
-                In this paper, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup.
-                We explore how InfoNCE suppresses domain-irrelevant common features and amplifies domain-relevant features.
-                Based on this analysis, we propose Domain-wise Contrastive Learning (\textit{DCon}) to enhance domain-irrelevant common features.
-                We also propose Prototype Mixup Learning (\textit{PMix}) to generalize domain-irrelevant common features across multiple domains
-                without relying on strong assumptions.
-                The proposed method consistently outperforms state-of-the-art methods on the PACS and DomainNet datasets across various label fractions,
-                showing significant improvements.
+                We broadens the scope of the compact 3D Gaussian representation to include dynamic scenes with significant enhancements: 1) We successfully extend
+                the learnable masking approach for Gaussians moving over time, demonstrating its wide applicability.
+                For static scenes, several methods have attempted to estimate and remove
+                non-essential Gaussians after training, yielding promising results.
+                However, removing non-essential Gaussians after training has been more challenging in dynamic scenes, as
+                it requires measuring the importance of each Gaussian over the entire duration.
+                In contrast, our proposed masking strategy simplifies the process by eliminating such complexities,
+                learning the actual rendering impact of each Gaussian across all timestamps during training iterations
+                through gradient descent.
+                2) To compactly represent the motions of Gaussians, we propose learning representative temporal
+                trajectories by applying the codebook-based approach to temporal attributes. We successfully represent
+                temporal attributes parameter-efficiently and validate that other compact representations for geometry
+                and color are applicable for dynamic scenes as well as for static scenes.
+                3) Extensive experiments and analysis demonstrate the effectiveness of our approach in dynamic settings.
+                We achieve more than a tenfold increase in parametric efficiency compared to STG, the state-of-the-art
+                method for dynamic scene representation, while maintaining comparable performance.
               </p>
               <hr>
 
+              <div class="w3-center">
+                <!-- <h2>Videos</h2> -->
+                <div style="width: 48%; display: inline-block;">
+                  <video controls style="width:100%" autoplay loop playsinline muted>
+                    <source src="videos/bicycle_pp.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
+                <div style="width: 48.4%; display: inline-block;">
+                  <video controls style="width:100%" autoplay loop playsinline muted>
+                    <source src="videos/drjohnson_pp.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
+              </div>
 
 
               <hr>
@@ -214,7 +254,7 @@
 
               <hr>
 
-<!--
+<!-- 
               <div class="w3-center">
                 <h2>The effect of masking</h2>
                 <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
