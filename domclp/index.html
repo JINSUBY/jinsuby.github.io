@@ -148,6 +148,33 @@
                 <h2>Abstract</h2>
               </div>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                <embed src="images/figure1.PNG" style="width:50%">
+              </div>
+              <p align="justify">
+                Self-supervised learning (SSL) methods based on the instance discrimination tasks with InfoNCE have achieved remarkable success.
+                Despite their success, SSL models often struggle to generate effective representations for unseen-domain data.
+                To address this issue, research on unsupervised domain generalization (UDG),
+                which aims to develop SSL models that can generate domain-irrelevant features, has been conducted.
+                Most UDG approaches utilize contrastive learning with InfoNCE to generate representations,
+                and perform feature alignment based on strong assumptions to generalize domain-irrelevant common features from multi-source domains.
+                However, existing methods that rely on instance discrimination tasks are not effective at extracting domain-irrelevant common features.
+                This leads to the suppression of domain-irrelevant common features and the amplification of domain-relevant features,
+                thereby hindering domain generalization. Furthermore, strong assumptions underlying feature alignment can lead to biased feature learning,
+                reducing the diversity of common features.
+                In this paper, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup.
+                We explore how InfoNCE suppresses domain-irrelevant common features and amplifies domain-relevant features.
+                Based on this analysis, we propose Domain-wise Contrastive Learning (\textit{DCon}) to enhance domain-irrelevant common features.
+                We also propose Prototype Mixup Learning (\textit{PMix}) to generalize domain-irrelevant common features across multiple domains
+                without relying on strong assumptions.
+                The proposed method consistently outperforms state-of-the-art methods on the PACS and DomainNet datasets across various label fractions,
+                showing significant improvements.
+              </p>
+              <hr>
+
+              <div class="w3-center">
+                <h2>Proposed Method</h2>
+              </div>
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
                 <embed src="images/figure1.PNG" style="width:100%">
               </div>
               <p align="justify">
@@ -171,128 +198,28 @@
               </p>
               <hr>
 
-
-
-              <hr>
-              <!-- <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_demo.jpg" style="width:100%">
-
-              </div>
-
-              <hr>
-              <div class="w3-center">
-                <h2>Architecture Overview</h2> -->
-              </div>
-              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_arch.jpg" style="width:100%">
-
-              </div>
-              <!-- <div class="w3-center">
-                    <h2>Abstract</h2>
-                </div> -->
-              <p align="justify">
-                3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D
-                Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than
-                volumetric rendering, achieving very fast rendering speed and promising image quality.
-                However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain
-                the high fidelity of the rendered images, which requires a large amount of memory and storage.
-                To address this critical issue, we place a specific emphasis on two key objectives: reducing the number
-                of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as
-                view-dependent color and covariance.
-                To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians
-                while preserving high performance. In addition, we propose a compact but effective representation of
-                view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics.
-                Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector
-                quantization.
-                With model compression techniques such as quantization and entropy coding, we consistently show over 25x
-                reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation,
-                compared to 3DGS.
-                Our work provides a comprehensive framework for 3D scene representation, achieving high performance,
-                fast training, compactness, and real-time rendering.
-              </p>
-
-              <hr>
-
-<!--
-              <div class="w3-center">
-                <h2>The effect of masking</h2>
-                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                  <embed src="images/fig_mask.jpg" style="width:45%">
-                </div>
-                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                  <embed src="images/fig_vis_mask.jpg" style="width:100%">
-                </div>
-                <p>Masking can significantly reduce the number of Gaussians while retaining high quality.</p>
-              </div>
-
-              <hr>
-              <div class="w3-center">
-                <h2>The detailed process of R-VQ</h2>
-              </div>
-              <div class="w3-display-container w3-row w3-white w3-margin-bottom">
-                <embed src="images/fig_rvq.jpg" style="width:100%">
-                <p align="justify">In the first stage, the scale and rotation vectors are compared to codes in each
-                  codebook, with the closest code identified as the result. In the next stage, the residual between the
-                  original vector and the first stage's result is compared with another codebook. This process is
-                  repeated up to the final stage.</p>
-              </div>
-              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_vis_rvq.jpg" style="width:50%">
-                <p align="justify">This reduces the storage requirements by approximately 30% while maintaining the
-                  quality of reconstruction, training time, and rendering speed.</p>
-              </div> -->
-
               <div class="w3-center">
                 <h2>Results</h2>
-                <p align="justify">
-                  In addition to the end-to-end trained models (Ours), we implemented straightforward post-processing techniques
-                  on the model attributes, a variant we denote as Ours+PP. These post-processing steps include:
-                  1) Applying 8-bit min-max quantization to hash grid parameters and scalar attributes. 2) Pruning hash grid
-                  parameters with values below 0.1.
-                  3) Sorting Gaussians in Morton order.
-                  4) Applying Huffman encoding on the 8-bit quantized values (hash parameters and scalar attributes) and R-VQ indices, and compressing the results using DEFLATE
+
               </div>
-              <h3>Static scenes</h3>
+              <h3>PACS dataset</h3>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_qual_s.png" style="width:100%">
+                <embed src="images/tab_pacs.png" style="width:100%">
               </div>
 
+              <h3>DomainNet dataset</h3>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/tab1.png" style="width:98%">
+                <embed src="images/tab_domainnet.png" style="width:100%">
               </div>
 
-              <div class="w3-center">
-                <!-- <h2>Videos</h2> -->
-                <div style="width: 49.5%; display: inline-block;">
-                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                    <embed src="images/tab2.png" style="width:95%">
-                  </div>
-                </div>
-                <div style="width: 49.5%; display: inline-block;">
-                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                    <embed src="images/tab3.png" style="width:95%">
-                  </div>
-                </div>
-              </div>
-
-              <h3>Dynamic scenes</h3>
-
+              <h3>T-SNE visualization</h3>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_qual_d.png" style="width:100%">
+                <embed src="images/tsne.png" style="width:100%">
               </div>
 
-              <div class="w3-center">
-                <!-- <h2>Videos</h2> -->
-                <div style="width: 49.5%; display: inline-block;">
-                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                    <embed src="images/tab4.png" style="width:95%">
-                  </div>
-                </div>
-                <div style="width: 49.5%; display: inline-block;">
-                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                    <embed src="images/tab5.png" style="width:95%">
-                  </div>
-                </div>
+              <h3>Multi-Domain 3D Toy example</h3>
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                <embed src="images/toy.png" style="width:100%">
               </div>
 
 
