@@ -163,8 +163,8 @@
                 reducing the diversity of common features.
                 In this paper, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup.
                 We explore how InfoNCE suppresses domain-irrelevant common features and amplifies domain-relevant features.
-                Based on this analysis, we propose Domain-wise Contrastive Learning (\textit{DCon}) to enhance domain-irrelevant common features.
-                We also propose Prototype Mixup Learning (\textit{PMix}) to generalize domain-irrelevant common features across multiple domains
+                Based on this analysis, we propose Domain-wise Contrastive Learning (DCon) to enhance domain-irrelevant common features.
+                We also propose Prototype Mixup Learning (PMix) to generalize domain-irrelevant common features across multiple domains
                 without relying on strong assumptions.
                 The proposed method consistently outperforms state-of-the-art methods on the PACS and DomainNet datasets across various label fractions,
                 showing significant improvements.
@@ -172,29 +172,24 @@
               <hr>
 
               <div class="w3-center">
-                <h2>Proposed Method</h2>
+                <h2>Limitations of Existing Method</h2>
               </div>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/figure1.PNG" style="width:100%">
+                <embed src="images/figure2_1.PNG" style="width:49%">
+              </div>
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                <embed src="images/figure2_1.PNG" style="width:49%">
               </div>
               <p align="justify">
-                Self-supervised learning (SSL) methods based on the instance discrimination tasks with InfoNCE have achieved remarkable success.
-                Despite their success, SSL models often struggle to generate effective representations for unseen-domain data.
-                To address this issue, research on unsupervised domain generalization (UDG),
-                which aims to develop SSL models that can generate domain-irrelevant features, has been conducted.
-                Most UDG approaches utilize contrastive learning with InfoNCE to generate representations,
-                and perform feature alignment based on strong assumptions to generalize domain-irrelevant common features from multi-source domains.
-                However, existing methods that rely on instance discrimination tasks are not effective at extracting domain-irrelevant common features.
-                This leads to the suppression of domain-irrelevant common features and the amplification of domain-relevant features,
-                thereby hindering domain generalization. Furthermore, strong assumptions underlying feature alignment can lead to biased feature learning,
-                reducing the diversity of common features.
-                In this paper, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup.
-                We explore how InfoNCE suppresses domain-irrelevant common features and amplifies domain-relevant features.
-                Based on this analysis, we propose Domain-wise Contrastive Learning (\textit{DCon}) to enhance domain-irrelevant common features.
-                We also propose Prototype Mixup Learning (\textit{PMix}) to generalize domain-irrelevant common features across multiple domains
-                without relying on strong assumptions.
-                The proposed method consistently outperforms state-of-the-art methods on the PACS and DomainNet datasets across various label fractions,
-                showing significant improvements.
+              Most UDG approaches rely on instance discrimination tasks, which are not well-suited for domain generalization.
+              In contrastive learning with InfoNCE, representations are learned to distinguish between instances.
+              If the model attempts to differentiate between instances, deep neural networks tend to learn features that are useful to discriminate instances.
+              In UDG environments, they are easy to capture domain-relevant features rather than domain-irrelevant common features,
+                because domain-relevant features are more helpful to distinguish instances across various domains.
+              As a result, the instance discrimination task suppresses domain-irrelevant features and amplifies domain-relevant features, thereby hindering domain generalization.
+
+              Another limitation is that previous approaches heavily depend on feature alignment strategies across multi-domain,
+                which reduce the diversity of domain-irrelevant common features.
               </p>
               <hr>
 
