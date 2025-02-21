@@ -220,9 +220,14 @@
               </div>
 
               <p align="justify">
-              We theoretically explore how InfoNCE leads to suppress domain-irrelevant common features and amplify domain-relevant features.
-              Based on this analysis, we propose the Domain-wise Contrastive Learning (DCon) to generate feature representations with enhanced domain-irrelevant common features.
-              Furthermore, we present the Prototype Mixup Learning (PMix) to generalize diverse common features across multi-domain.
+              To address these limitations, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup for unsupervised domain generalization.
+              First, we theoretically and experimentally demonstrate that some negative terms in InfoNCE can suppress domain-irrelevant common features and amplifies domain-relevant features.
+              Building on this insight, we introduce the Domain-wise Contrastive Learning (DCon) to enhance domain-irrelevant common features while representation learning.
+              Second, to effectively generalize diverse domain-irrelevant common features across multi-domain, we propose the Prototype Mixup Learning (PMix).
+              In PMix, to generalize common features from multi-domain, we interpolate common features in each domain utilizing mixup.
+              We extract prototypes of features by k-means clustering, and train the model with mixed prototypes by mixup.
+              It allows the model to effectively learn feature representations for unseen inter-manifold spaces while retaining diverse common feature information.
+              Through our proposed method, DomCLP, the model effectively enhances and generalizes diverse common features.
               </p>
               <hr>
 
@@ -247,7 +252,7 @@
 
               <h3>T-SNE visualization</h3>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/figure4_3.png" style="width:50%">
+                <embed src="images/figure4_3.png" style="width:70%">
               </div>
 
               <h3>Multi-Domain 3D Toy example</h3>
