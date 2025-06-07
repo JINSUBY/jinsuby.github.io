@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>DCG-SQL: Enhancing In-Context Learning for Text-to-SQL with Deep Contextual Schema Link Graph</title>
+  <title>DomCLP: Domain-wise Contrastive Learning with Prototype Mixup for Unsupervised Domain Generalization</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -133,14 +133,14 @@
             <h4><b>Preprint</b> [<a href="https://github.com/maincold2/Dynamic_C3DGS/"><b>Code</b></a>] [<a href="https://arxiv.org/abs/2408.03822"><b>Paper</b></a>]</h4>
             </div> -->
             <div class="w3-center">
-              <h1>DCG-SQL: Enhancing In-Context Learning for Text-to-SQL with Deep Contextual Schema Link Graph</h1>
-Jihyung Lee*, Jin-Seop Lee*, Jaehoon Lee, YunSeok Choi, Jee-Hyong Lee
+              <h1>DomCLP: Domain-wise Contrastive Learning with Prototype Mixup for Unsupervised Domain Generalization</h1>
+
               <div class="w3-center">
-                <h4><b>ACL 2025</b></h4>
+                <h4><b>AAAI 2025</b></h4>
                 <h4>[<a href="https://arxiv.org/abs/2412.09074"><b>Paper</b></a>]
                   [<a href="https://github.com/JINSUBY/DomCLP"><b>Code</b></a>]</h4>
                 </div>
-                <h5>Jihyung Lee*, <a href="https://jinsuby.github.io">Jin-Seop Lee*</a>, Jaehoon Lee, <a href="https://dli.skku.edu/">YunSeok Choi<\a>, <a href="https://iislab.skku.edu/">Jee-Hyong Lee</a></h5>
+                <h5><a href="https://jinsuby.github.io">Jin-Seop Lee</a>, Noo-ri Kim, <a href="https://iislab.skku.edu/">Jee-Hyong Lee</a></h5>
                 <h5>Sungkyunkwan University</h5>
               </div>
 
@@ -151,15 +151,52 @@ Jihyung Lee*, Jin-Seop Lee*, Jaehoon Lee, YunSeok Choi, Jee-Hyong Lee
                 <embed src="images/figure1.PNG" style="width:50%">
               </div>
               <p align="justify">
-              Text-to-SQL, which translates a natural language question into an SQL query, has advanced with in-context learning of Large Language Models (LLMs).
-                However, existing methods show little improvement in performance compared to randomly chosen demonstrations,
-                and significant performance drops when smaller LLMs (e.g., Llama 3.1-8B) are used.
-                This indicates that these methods heavily rely on the intrinsic capabilities of hyper-scaled LLMs, rather than effectively retrieving useful demonstrations.
-                In this paper, we propose a novel approach for effectively retrieving demonstrations and generating SQL queries.
-                We construct a Deep Contextual Schema Link Graph, which contains key information and semantic relationship between a question and its database schema items.
-                This graph-based structure enables effective representation of Text-to-SQL samples and retrieval of useful demonstrations for in-context learning.
-                Experimental results on the Spider benchmark demonstrate the effectiveness of our approach,
-                showing consistent improvements in SQL generation performance and efficiency across both hyper-scaled LLMs and small LLMs.
+                Self-supervised learning (SSL) methods based on the instance discrimination tasks with InfoNCE have achieved remarkable success.
+                Despite their success, SSL models often struggle to generate effective representations for unseen-domain data.
+                To address this issue, research on unsupervised domain generalization (UDG),
+                which aims to develop SSL models that can generate domain-irrelevant features, has been conducted.
+                Most UDG approaches utilize contrastive learning with InfoNCE to generate representations,
+                and perform feature alignment based on strong assumptions to generalize domain-irrelevant common features from multi-source domains.
+                However, existing methods that rely on instance discrimination tasks are not effective at extracting domain-irrelevant common features.
+                This leads to the suppression of domain-irrelevant common features and the amplification of domain-relevant features,
+                thereby hindering domain generalization. Furthermore, strong assumptions underlying feature alignment can lead to biased feature learning,
+                reducing the diversity of common features.
+                In this paper, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup.
+                We explore how InfoNCE suppresses domain-irrelevant common features and amplifies domain-relevant features.
+                Based on this analysis, we propose Domain-wise Contrastive Learning (DCon) to enhance domain-irrelevant common features.
+                We also propose Prototype Mixup Learning (PMix) to generalize domain-irrelevant common features across multiple domains
+                without relying on strong assumptions.
+                The proposed method consistently outperforms state-of-the-art methods on the PACS and DomainNet datasets across various label fractions,
+                showing significant improvements.
+              </p>
+              <hr>
+
+              <div class="w3-center">
+                <h2>Limitations of Existing Method</h2>
+              </div>
+              <div class="w3-center">
+                <!-- <h2>Videos</h2> -->
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/figure2_1.png" style="width:95%">
+                  </div>
+                </div>
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/figure2_2.png" style="width:95%">
+                  </div>
+                </div>
+              </div>
+
+              <p align="justify">
+              Most UDG approaches rely on instance discrimination tasks, which are not well-suited for domain generalization.
+              In contrastive learning with InfoNCE, representations are learned to distinguish between instances.
+              If the model attempts to differentiate between instances, deep neural networks tend to learn features that are useful to discriminate instances.
+              In UDG environments, they are easy to capture domain-relevant features rather than domain-irrelevant common features,
+              because domain-relevant features are more helpful to distinguish instances across various domains.
+              As a result, the instance discrimination task suppresses domain-irrelevant features and amplifies domain-relevant features, thereby hindering domain generalization.
+              Another limitation is that previous approaches heavily depend on feature alignment strategies across multi-domain,
+              which reduce the diversity of domain-irrelevant common features.
               </p>
               <hr>
 
@@ -182,12 +219,14 @@ Jihyung Lee*, Jin-Seop Lee*, Jaehoon Lee, YunSeok Choi, Jee-Hyong Lee
               </div>
 
               <p align="justify">
-              In this section, we introduce a Text-to-SQL method with Deep Contextual Schema Link Graph-based Retrieval, DCG-SQL.
-              Our method consists of three main processes: Deep Contextual Schema Link Graph Construction, Graph-based Demonstration Retrieval, and SQL Generation.
-              First, we construct a deep contextual schema link graph, which captures the contextual relationships between question and relevant schema items.
-              Then, to retrieve demonstrations with our graph representation, we train a graph encoder with self-supervised learning.
-              This ensures that samples closer to the anchor are more useful in generating the target SQL, enabling the effective retrieval of useful demonstrations.
-              Finally, with the selected demonstrations, our method can fully leverage in-context learning ability, and generate the target SQL more correctly.
+              To address these limitations, we propose a novel approach, DomCLP, Domain-wise Contrastive Learning with Prototype Mixup for unsupervised domain generalization.
+              First, we theoretically and experimentally demonstrate that some negative terms in InfoNCE can suppress domain-irrelevant common features and amplifies domain-relevant features.
+              Building on this insight, we introduce the Domain-wise Contrastive Learning (DCon) to enhance domain-irrelevant common features while representation learning.
+              Second, to effectively generalize diverse domain-irrelevant common features across multi-domain, we propose the Prototype Mixup Learning (PMix).
+              In PMix, to generalize common features from multi-domain, we interpolate common features in each domain utilizing mixup.
+              We extract prototypes of features by k-means clustering, and train the model with mixed prototypes by mixup.
+              It allows the model to effectively learn feature representations for unseen inter-manifold spaces while retaining diverse common feature information.
+              Through our proposed method, DomCLP, the model effectively enhances and generalizes diverse common features.
               </p>
               <hr>
 
