@@ -245,3 +245,6 @@ a:hover, a:focus { color: #2f3a8c; }
 .research-details > summary { padding: 8px 6px; }
 .research-details[open] { background: #f5f5f7; border-color: rgba(25,28,49,.094); }
 .research-details .research-subkeywords { margin: 4px 6px 8px 22px; }
+
+.publication-heading .author-legend { margin: 6px 0 0; font-size: 13px; font-weight: 400; line-height: 1.5; color: #6b7280; }
+.paper-authors .corresponding-author { font-size: .7em; line-height: 0; vertical-align: super; }
