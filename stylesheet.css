@@ -227,3 +227,9 @@ a:hover, a:focus { color: #2f3a8c; }
 .paper-authors, .paper-authors b, .paper-authors u, .paper-venue, .paper-venue b, .paper-venue em { font-size: 16px; }
 .paper-authors { color: #4b5563; }
 .publication-list .publication-number { font-size: 16px; }
+
+/* Native, initially collapsed research disclosure with keyboard focus. */
+.research-details > summary { cursor: pointer; font-size: 16px; line-height: 1.65; min-height: 44px; box-sizing: border-box; padding: 8px 0; }
+.research-details > summary::marker { color: #4e589d; }
+.research-details > summary:focus-visible { outline: 2px solid #2f3a8c; outline-offset: 4px; border-radius: 2px; }
+.research-details .research-interests { margin-top: 8px; }
