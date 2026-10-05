@@ -201,3 +201,23 @@
 .profile-date { color: #596673; font-size: 14px; white-space: nowrap; text-align: right; }
 .profile-date:empty { display: none; }
 @media (max-width: 600px) { .profile-row { grid-template-columns: minmax(0,1fr); gap: 5px; } .profile-date { text-align: left; white-space: normal; } }
+
+/* Compact reference-inspired controls; preserve unobtrusive 44px profile targets. */
+.intro-prose .contact-links { gap: 6px; }
+.social-link, .social-link.cv-link { width: 44px; min-width: 44px; height: 44px; padding: 0; border: 0; border-radius: 0; color: #222; }
+.social-link svg { width: 22px; height: 22px; fill: currentColor; stroke: none; }
+.social-link.cv-link svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.social-link:hover { color: #1772d0; background: transparent; }
+.paper-links { gap: 7px; }
+.paper-link { min-height: 28px; padding: 2px 8px; gap: 4px; border-color: #d6d9e0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+.paper-link svg { width: 13px; height: 13px; }
+.news-year-divider { display: block; border-top: 1px solid #e5e5e5; margin: 13px 0; }
+@media (pointer: coarse) { .paper-link { min-height: 44px; } }
+
+/* Reference palette: opaque equivalents on white preserve contrast. */
+body { color: #3c3c3c; }
+a { color: #4e589d; }
+a:hover, a:focus { color: #2f3a8c; }
+.paper-authors, .paper-venue, .paper-arxiv, .profile-date { color: #6b7280; }
+.social-link:hover, .social-link:focus { color: #2f3a8c; }
+.social-link:focus-visible, .paper-link:focus-visible { outline-color: #2f3a8c; }
