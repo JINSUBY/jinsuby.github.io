@@ -263,3 +263,10 @@ a:hover, a:focus { color: #2f3a8c; }
 .research-details:focus-within { border-color: rgba(47,58,140,.22); }
 
 .profile-experience .profile-row, .profile-honors .profile-row { border-bottom: 0; }
+
+/* Compact, independently expandable citations with local downloads. */
+.bibtex-toggle, .bibtex-copy { font-family: inherit; cursor: pointer; color: #4e589d; background: transparent; }
+.bibtex-panel { margin-top: 8px; padding: 12px; border: 1px solid rgba(47,58,140,.12); border-radius: 6px; background: linear-gradient(rgba(247,248,255,.96),rgba(242,244,252,.96)); }
+.bibtex-panel[hidden] { display: none; }
+.bibtex-panel pre { margin: 0 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.bibtex-status { align-self: center; font-size: 13px; color: #4b5563; }
