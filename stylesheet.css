@@ -138,9 +138,19 @@
 /* Publication organization: retain the existing typography and thumbnails. */
 .publication-heading td { padding: 20px; }
 .publication-year td { padding: 8px 20px 0; }
-.publication-year h3 { margin: 0; padding: 12px 0 8px; border-bottom: 1px solid #e5e5e5; font-size: 18px; font-weight: normal; }
+.publication-year h3 { margin: 0; padding: 12px 0 8px; border-bottom: 1px solid #e5e5e5; font-size: 22px; font-weight: normal; }
 .publication-number { color: #555; font-size: 13px; font-weight: normal; white-space: nowrap; }
 @media (max-width: 600px) {
   .publication-list > tbody > tr:not(.publication-heading):not(.publication-year) > td { display: block; width: 100% !important; box-sizing: border-box; }
   .publication-list > tbody > tr:not(.publication-heading):not(.publication-year) > td:first-child { padding-bottom: 0 !important; }
+}
+
+/* Slightly larger publication titles and thumbnails. */
+.publication-list .papertitle { font-size: 16px; line-height: 1.35; }
+.publication-list .publication-number { font-size: 14px; }
+.publication-list img { width: 180px; max-width: 100%; height: auto; }
+.publication-list .one { width: 180px; max-width: 100%; height: 180px; }
+@media (min-width: 601px) {
+  .publication-list > tbody > tr:not(.publication-heading):not(.publication-year) > td:first-child { width: 28% !important; }
+  .publication-list > tbody > tr:not(.publication-heading):not(.publication-year) > td:last-child { width: 72% !important; }
 }
