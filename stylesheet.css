@@ -171,3 +171,33 @@
 .intro-prose .name { font-size: 32px; }
 .contact-links { line-height: 1.9 !important; }
 @media (max-width: 600px) { .paper-link { min-height: 44px; padding: 6px 10px; } }
+
+
+/* Introductory research summary, date badges, and accessible profile marks. */
+.research-aim { font-weight: 600; }
+.research-interests { margin: 0; padding-left: 21px; }
+.research-interests li { margin: 9px 0; font-size: 16px; line-height: 1.65; }
+.intro-prose .news-date { display: inline-block; font-size: 13px; line-height: 1.5; font-weight: 600; padding: 2px 7px; margin: 3px 4px 3px 0; border: 1px solid #dde5ed; border-radius: 5px; background: #f3f6f9; color: #42546a; white-space: nowrap; vertical-align: baseline; }
+.publication-list .publication-number { display: inline-block; padding: 1px 6px; margin-right: 3px; border: 1px solid #dbe5ee; border-radius: 5px; background: #f1f6fb; color: #456481; font-size: 15px; line-height: 1.4; vertical-align: baseline; }
+.publication-list .publication-j { background: #f0f6f3; border-color: #d9e7df; color: #416a53; }
+.publication-list .publication-p { background: #f6f4f0; border-color: #e7e1d6; color: #71624c; }
+.intro-prose .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin: 18px 0; }
+.social-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #dbe3eb; border-radius: 7px; color: #1772d0; }
+.social-link svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.social-link .icon-letter { fill: currentColor; stroke: none; font: bold 15px Arial,sans-serif; }
+.social-link .icon-letter.small { font-size: 9px; }
+.social-link:hover { background: #f5f8fb; }
+.social-link:focus-visible { outline: 2px solid #1772d0; outline-offset: 3px; }
+
+.intro-prose .email-address { text-align: center; margin: 16px 0 4px; overflow-wrap: anywhere; }
+.intro-prose .contact-links { margin-top: 8px; }
+.social-link.cv-link { width: auto; min-width: 62px; gap: 5px; padding: 0 9px; box-sizing: border-box; }
+.social-link.cv-link span { font-size: 14px; font-weight: 600; }
+.profile-section, .profile-section p, .profile-section a, .profile-section strong { font-size: 16px; line-height: 1.6; }
+.profile-rows { margin-top: 16px; }
+.profile-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 20px; padding: 14px 0; border-bottom: 1px solid #edf0f3; }
+.profile-row:last-child { border-bottom: 0; }
+.profile-row p { margin: 4px 0 0; }
+.profile-date { color: #596673; font-size: 14px; white-space: nowrap; text-align: right; }
+.profile-date:empty { display: none; }
+@media (max-width: 600px) { .profile-row { grid-template-columns: minmax(0,1fr); gap: 5px; } .profile-date { text-align: left; white-space: normal; } }
