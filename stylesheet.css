@@ -339,3 +339,6 @@ body { padding-top: 75px; }
 
 /* Emphasis limited to existing biography links and the research goal. */
 .profile-biography .biography a, .research-intro strong { font-weight: 700; }
+
+/* Section boundaries supply spacing; avoid stacking last-row padding. */
+.profile-experience .profile-row:last-child, .profile-education .profile-row:last-child, .profile-honors .profile-row:last-child { padding-bottom: 0; }
