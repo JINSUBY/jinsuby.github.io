@@ -138,7 +138,7 @@
 /* Publication organization: retain the existing typography and thumbnails. */
 .publication-heading td { padding: 20px; }
 .publication-year td { padding: 8px 20px 0; }
-.publication-year h3 { margin: 0; padding: 12px 0 8px; border-bottom: 1px solid #e5e5e5; font-size: 22px; font-weight: normal; }
+.publication-year h3 { margin: 0; padding: 12px 0 8px; border-bottom: 0; font-size: 22px; font-weight: normal; }
 .publication-number { color: #555; font-size: 13px; font-weight: normal; white-space: nowrap; }
 @media (max-width: 600px) {
   .publication-list > tbody > tr:not(.publication-heading):not(.publication-year) > td { display: block; width: 100% !important; box-sizing: border-box; }
@@ -262,11 +262,48 @@ a:hover, a:focus { color: #2f3a8c; }
 .research-details .research-subkeywords { margin: 4px 2.4px 5.6px 24.8px; font-size: 15.2px; font-weight: 400; line-height: 1.55; color: rgba(17,17,17,.68); }
 .research-details:focus-within { border-color: rgba(47,58,140,.22); }
 
-.profile-experience .profile-row, .profile-honors .profile-row { border-bottom: 0; }
+.profile-experience .profile-row, .profile-honors .profile-row, .profile-education .profile-row { border-bottom: 0; }
 
-/* Compact, independently expandable citations with local downloads. */
+/* Compact, independently expandable citations with copy controls. */
 .bibtex-toggle, .bibtex-copy { font-family: inherit; cursor: pointer; color: #4e589d; background: transparent; }
 .bibtex-panel { margin-top: 8px; padding: 12px; border: 1px solid rgba(47,58,140,.12); border-radius: 6px; background: linear-gradient(rgba(247,248,255,.96),rgba(242,244,252,.96)); }
 .bibtex-panel[hidden] { display: none; }
 .bibtex-panel pre { margin: 0 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .bibtex-status { align-self: center; font-size: 13px; color: #4b5563; }
+
+/* Profile header: photo, identity, contact links, then biography. */
+.profile-header {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  margin: 28px 20px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.profile-photo { display: block; }
+.profile-photo img { display: block; width: 100%; height: auto; border-radius: 20%; }
+.profile-name { margin: 0 0 14px; font-size: 36px; line-height: 1.2; font-weight: 700; }
+.profile-role { margin: 0 0 4px; font-size: 18px; line-height: 1.5; font-weight: 600; }
+.profile-affiliation { margin: 0; font-size: 16px; line-height: 1.5; color: #6b7280; }
+.profile-email { margin: 12px 0 4px; }
+.profile-email a { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; line-height: 1.5; }
+.profile-email span { overflow-wrap: anywhere; min-width: 0; }
+.profile-email svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.profile-header .contact-links { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 6px; margin: 4px 0 0 -10px; }
+.profile-biography { padding: 6px 20px 0; }
+@media (max-width: 480px) {
+  .profile-header { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; margin-top: 22px; padding-bottom: 20px; align-items: start; }
+  .profile-photo { margin-top: 3px; }
+  .profile-name { font-size: 28px; margin-bottom: 10px; }
+  .profile-role { font-size: 16px; }
+  .profile-affiliation { font-size: 15px; }
+  .profile-email a { font-size: 14px; gap: 5px; }
+  .profile-email svg { flex-basis: 16px; width: 16px; height: 16px; }
+  .profile-header .contact-links { gap: 0; }
+}
+
+@media (max-width: 360px) {
+  .profile-header { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
+  .profile-name { font-size: 26px; }
+}
