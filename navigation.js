@@ -5,7 +5,7 @@
   function close() { menu.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
   function current() {
     menu.querySelectorAll('a').forEach(a => {
-      if (a.hash === location.hash) a.setAttribute('aria-current', 'location');
+      if (a.hash && a.hash === location.hash) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     });
     close();
