@@ -248,3 +248,16 @@ a:hover, a:focus { color: #2f3a8c; }
 
 .publication-heading .author-legend { margin: 6px 0 0; font-size: 13px; font-weight: 400; line-height: 1.5; color: #6b7280; }
 .paper-authors .corresponding-author { font-size: .7em; line-height: 0; vertical-align: super; }
+
+/* Match the reference's compact per-category research disclosures. */
+.research-summary .research-intro { margin: 14px 0 12px; font-weight: 400; }
+.research-details { margin: 5.6px 0; padding: 3.2px 4px; border: 1px solid rgba(17,17,17,.08); border-radius: 10px; background: rgba(17,17,17,.02); }
+.research-details > summary { list-style: none; position: relative; min-height: 0; padding: 4px 5.6px 4px 24.8px; border-radius: 8px; font-size: 16px; font-weight: 520; line-height: 24px; color: rgba(17,17,17,.82); }
+.research-details > summary::-webkit-details-marker { display: none; }
+.research-details > summary::marker { content: ""; }
+.research-details > summary::before { content: "▸"; position: absolute; left: 7.2px; top: 2.88px; font-size: 15.2px; color: rgba(47,58,140,.75); }
+.research-details[open] > summary::before { content: "▾"; color: rgba(167,139,250,.95); }
+.research-details > summary:hover { background: linear-gradient(rgba(47,58,140,.08),rgba(167,139,250,.06)); color: rgba(17,17,17,.9); }
+.research-details[open] { background: linear-gradient(rgba(47,58,140,.06),rgba(167,139,250,.05)); border-color: rgba(47,58,140,.12); }
+.research-details .research-subkeywords { margin: 4px 2.4px 5.6px 24.8px; font-size: 15.2px; font-weight: 400; line-height: 1.55; color: rgba(17,17,17,.68); }
+.research-details:focus-within { border-color: rgba(47,58,140,.22); }
