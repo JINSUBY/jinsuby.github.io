@@ -322,3 +322,6 @@ html { scroll-padding-top: 84px; }
   .site-nav .site-nav-name { flex-basis: 100%; }
   .site-nav a { font-size: 14px; }
 }
+
+/* Emphasis limited to existing biography links and the research goal. */
+.profile-biography .biography a, .research-intro strong { font-weight: 700; }
