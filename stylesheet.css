@@ -80,24 +80,24 @@
   tr,
   p,
   a {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 14px;
   }
   
   strong {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 14px;
   }
   
   h2 {
     margin: 0;
     font-weight: 700;
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 22px;
   }
   
   .papertitle {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 14px;
     font-weight: 700;
   }
@@ -105,7 +105,7 @@
   .name {
     padding-top: 20px;
     margin: 0;
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 32px;
   }
   
@@ -221,3 +221,9 @@ a:hover, a:focus { color: #2f3a8c; }
 .paper-authors, .paper-venue, .paper-arxiv, .profile-date { color: #6b7280; }
 .social-link:hover, .social-link:focus { color: #2f3a8c; }
 .social-link:focus-visible, .paper-link:focus-visible { outline-color: #2f3a8c; }
+
+/* Reference Inter typography with a modest publication size increase. */
+.publication-list .papertitle { font-size: 17px; font-weight: 600; }
+.paper-authors, .paper-authors b, .paper-authors u, .paper-venue, .paper-venue b, .paper-venue em { font-size: 16px; }
+.paper-authors { color: #4b5563; }
+.publication-list .publication-number { font-size: 16px; }
