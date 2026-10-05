@@ -16,10 +16,13 @@
 <body id="top">
   <nav class="site-nav" aria-label="Main navigation">
     <div class="site-nav-inner">
-      <a class="site-nav-name" href="#top">JinSeop Lee</a>
-      <a href="#news">News</a>
-      <a href="#publications">Publications</a>
-      <a href="#activities">Activities</a>
+      <a class="site-nav-name" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5M5 9v12h14V9M9 21v-7h6v7"/></svg><span>JinSeop Lee</span></a>
+      <div class="site-nav-menu" id="site-nav-menu">
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#activities">Activities</a>
+      </div>
+      <button class="site-nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav-menu" aria-expanded="false"><span></span></button>
     </div>
   </nav>
   <table
@@ -860,6 +863,7 @@ url={https://link.springer.com/chapter/10.1007/978-3-031-73013-9_8}
       </tr>
   </table>
 <script src="bibtex.js" defer></script>
+<script src="navigation.js" defer></script>
 </body>
 
 </html>

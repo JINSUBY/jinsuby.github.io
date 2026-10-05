@@ -308,20 +308,34 @@ a:hover, a:focus { color: #2f3a8c; }
   .profile-name { font-size: 26px; }
 }
 
-/* Native fragment links retain browser history and keyboard navigation. */
-html { scroll-padding-top: 84px; }
-.site-nav { position: sticky; top: 0; z-index: 10; background: #f8f8fb; border-bottom: 1px solid #dedee5; }
-.site-nav-inner { max-width: 800px; margin: 0 auto; padding: 10px 20px; box-sizing: border-box; display: flex; align-items: center; gap: 24px; }
-.site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: #62626d; font-size: 16px; line-height: 1.4; text-decoration: none; }
-.site-nav .site-nav-name { margin-right: auto; font-size: 18px; font-weight: 700; color: #292936; }
-.site-nav a:hover { color: #2f3a8c; }
-.site-nav a:focus-visible { outline: 2px solid #2f3a8c; outline-offset: 3px; border-radius: 2px; }
-@media (max-width: 480px) {
-  html { scroll-padding-top: 124px; }
-  .site-nav-inner { flex-wrap: wrap; gap: 0 20px; padding: 4px 20px; }
-  .site-nav .site-nav-name { flex-basis: 100%; }
-  .site-nav a { font-size: 14px; }
+/* Reference-inspired fixed navigation with native section anchors. */
+html { scroll-padding-top: 94px; }
+body { padding-top: 75px; }
+.site-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: linear-gradient(180deg, color-mix(in srgb, #fbfbfb 97%, #a78bfa 3%), #fbfbfb); border-bottom: 1px solid rgba(17,17,17,.1); }
+.site-nav-inner { position: relative; max-width: 800px; min-height: 74px; margin: 0 auto; padding: 12px 20px; box-sizing: border-box; display: flex; align-items: center; gap: 18px; }
+.site-nav a { text-decoration: none; }
+.site-nav .site-nav-name { display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; color: #111; font-size: 20px; font-weight: 600; line-height: 1; min-height: 44px; }
+.site-nav-name span { letter-spacing: -.015em; color: color-mix(in srgb, #111 92%, #6d5efc 8%); }
+.site-nav-name svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.site-nav-name:hover svg, .site-nav-name:hover span { color: #7c6fd6; }
+.site-nav-menu { display: flex; align-items: center; gap: 18px; margin: 0 auto; }
+.site-nav-menu a { position: relative; display: inline-flex; align-items: center; min-height: 44px; color: rgba(17,17,17,.62); font-size: 18px; line-height: 1.4; transition: color .15s ease; }
+.site-nav-menu a::after { content: ""; position: absolute; left: 0; bottom: 1px; width: 100%; height: 2px; background: linear-gradient(90deg,transparent,#2f3a8c,color-mix(in srgb,#2f3a8c 55%,#a78bfa 45%),transparent); transform: scaleX(0); transition: transform .16s ease; opacity: .85; }
+.site-nav-menu a:hover, .site-nav-menu a[aria-current] { color: #111; }
+.site-nav-menu a:hover::after, .site-nav-menu a[aria-current]::after { transform: scaleX(1); }
+.site-nav a:focus-visible, .site-nav-toggle:focus-visible { outline: 2px solid #2f3a8c; outline-offset: 3px; border-radius: 2px; }
+.site-nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid rgba(17,17,17,.1); border-radius: 10px; background: transparent; color: #111; cursor: pointer; }
+.site-nav-toggle span, .site-nav-toggle span::before, .site-nav-toggle span::after { width: 18px; height: 2px; border-radius: 2px; background: currentColor; position: relative; display: block; }
+.site-nav-toggle span::before, .site-nav-toggle span::after { content: ""; position: absolute; left: 0; }
+.site-nav-toggle span::before { top: -6px; }
+.site-nav-toggle span::after { top: 6px; }
+@media (max-width: 960px) {
+  .site-nav-inner { padding: 12px 20px; }
+  .site-nav-toggle { display: inline-flex; margin-left: auto; }
+  .site-nav-menu { display: none; position: absolute; left: 0; right: 0; top: calc(100% + 1px); margin: 0; padding: 10px 16px 14px; background: #fbfbfb; border-bottom: 1px solid rgba(17,17,17,.1); flex-direction: column; gap: 10px; }
+  .site-nav-menu.is-open { display: flex; }
 }
+@media (prefers-reduced-motion: reduce) { .site-nav-menu a, .site-nav-menu a::after { transition: none; } }
 
 /* Emphasis limited to existing biography links and the research goal. */
 .profile-biography .biography a, .research-intro strong { font-weight: 700; }
