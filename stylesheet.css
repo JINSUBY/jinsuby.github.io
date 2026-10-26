@@ -262,7 +262,7 @@ a:hover, a:focus { color: #2f3a8c; }
 .research-details .research-subkeywords { margin: 4px 2.4px 5.6px 24.8px; font-size: 15.2px; font-weight: 400; line-height: 1.55; color: rgba(17,17,17,.68); }
 .research-details:focus-within { border-color: rgba(47,58,140,.22); }
 
-.profile-experience .profile-row, .profile-honors .profile-row, .profile-education .profile-row { border-bottom: 0; }
+.profile-talks .profile-row, .profile-experience .profile-row, .profile-honors .profile-row, .profile-education .profile-row { border-bottom: 0; }
 
 /* Compact, independently expandable citations with copy controls. */
 .bibtex-toggle, .bibtex-copy { font-family: inherit; cursor: pointer; color: #4e589d; background: transparent; }
@@ -341,4 +341,4 @@ body { padding-top: 75px; }
 .profile-biography .biography a, .research-intro strong { font-weight: 700; }
 
 /* Section boundaries supply spacing; avoid stacking last-row padding. */
-.profile-experience .profile-row:last-child, .profile-education .profile-row:last-child, .profile-honors .profile-row:last-child { padding-bottom: 0; }
+.profile-talks .profile-row:last-child, .profile-experience .profile-row:last-child, .profile-education .profile-row:last-child, .profile-honors .profile-row:last-child { padding-bottom: 0; }
